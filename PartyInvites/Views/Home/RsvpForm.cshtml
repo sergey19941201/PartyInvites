@@ -1,0 +1,38 @@
+﻿@model PartyInvites.Models.GuestResponse
+@{   Layout = null; }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" /> 
+
+    <title>RsvpForm</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        //This is to show the user where exactly is an error:
+        @Html.ValidationSummary()
+
+        //"TextBoxFor generates textfield"
+        <p>Your name noob!: @Html.TextBoxFor(x => x.Name) </p>
+        <p>Your email noob!: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Your phone noob!: @Html.TextBoxFor(x => x.Phone)</p>
+        //"TextBoxFor generates textfield ENDED"
+
+        <p>
+            Will you attend Noobator?      @Html.DropDownListFor(x => x.WillAttend,
+                                  new[] { new SelectListItem() { Text = "Yes, I'll be there", Value = bool.TrueString },
+                                  new SelectListItem() { Text = "No, I can't come", Value = bool.FalseString } }, "Choose an option")
+        </p>
+        //Button "submit"
+        <input type="submit" value="Submit RSVP" />
+
+        //Link "Index"
+        <p>
+            @Html.ActionLink("Go to Index", "Index")
+        </p>
+    }
+</body>
+</html> 
