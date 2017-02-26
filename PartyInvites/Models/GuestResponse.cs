@@ -21,5 +21,7 @@ namespace PartyInvites.Models
         [Required(ErrorMessage = "Please specify whether you'll attend")]
         //WillAttend has type "Nullable<bool>". It can be true, false or null.
         public bool? WillAttend { get; set; }
+
+
     }
 }
